@@ -1,0 +1,189 @@
+header{
+    min-height: 100px;
+    background-color: #FF4F3C;
+    padding-top: 30px;
+    color:white;
+    font-size: 25px;
+    padding-left: 15px;
+}
+header a{
+    color:white;
+    font-size: 25px;
+}
+header a:hover{
+    text-decoration: none;
+    color: darkgray;
+}
+footer{
+    height: 200px;
+    background-color: #2C2A2A;
+    clear: both;
+    padding-top: 40px;
+}
+
+#map {
+    height: 600px;
+    border-radius: 50px;
+    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); /* this fixes the overflow:hidden in Chrome/Opera */
+padding-bottom: 10px;
+}
+
+#mapBlock {
+    height: 300px;
+}
+#mapBlockDetail {
+    height: 300px;
+    width: 300px;
+}
+.loading_block{
+    display: inline;
+}
+#loading{
+    height:40px;
+    display: none;
+    margin-left: 40px;
+}
+#found_results{
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+#info_images{
+    margin-top: 30px;
+    clear: both;
+}
+#info_images img{
+    height: 200px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+.bx-wrapper img {
+    float: left;
+}
+#show_filters{
+    display: none;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;"
+}
+#left{
+    background-color: #140F03;
+    height:670px;
+
+}
+#show_price{
+    color: red;
+    font-size: 30px;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+#app{
+    background-color: #E8E6E5;
+}
+#left, #right{
+    padding: 0 0;
+}
+#item_block{
+    background-color: white;
+    padding-top: 30px;
+}
+#header_right{
+    float: right;
+    text-align: right;
+    padding-right: 5%;
+}
+#header_right a{
+    margin-left: 15px;
+}
+#header_left{
+    font-family: 'Knewave', cursive;
+    font-size: 30px;
+}
+#footer_high{
+    font-family: 'Knewave', cursive;
+    font-size: 40px;
+}
+#footer_low{color:white;
+font-size: 23px;
+}
+#footer_high a ,#footer_low a{
+    color:white;
+}
+#footer_high a:hover {
+    text-decoration: none;
+    color:white;
+}
+#footer_low a:hover{
+    color:white;
+}
+.alert_link{
+    font-weight: bold;
+    color:green;
+}
+#title_left{
+    float:left;
+}
+#title_right{
+    float:right;
+    font-size: 40px;
+    font-weight: bold;
+}
+.form-group-image{
+    margin-top: 50px;
+}
+#buttons_send{
+    margin-top: 100px;
+}
+#images_already_has img{
+    width: 50px;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+#modal_image_show,#modal_image {
+    width: 450px;
+}
+#hide_bitton{
+    width: 50px;
+}
+@media(max-width:1000px){
+    #title_right{
+        float:left;
+    }
+    #footer_low{
+        font-size: 15px;
+    }
+    #map {
+        height: 400px;
+        margin-bottom: 0px;
+    }
+    #header_right{
+        clear: both;
+        text-align: center;
+    }
+    #info_images img{
+        height: 100px;
+    }
+    #right{
+        padding: 0 0 ;
+
+    }
+    #main{
+        min-height: 500px;
+    }
+    #left{
+        height:100%;
+    }
+    #show_filters{
+        display: inline;
+    }
+    #left{
+        display: none;
+    }
+    #mapBlockDetail{
+        width: 250px;
+    }
+
+
+}
