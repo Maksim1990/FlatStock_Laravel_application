@@ -8,8 +8,8 @@
 
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)   **ATTENTION!** *For testing purposes try to use following credentials. These are testing login & password details that provide access to test account and all main application functionalities:*
 
-> **LOGIN: test@test.com (or you can use just ‘test’)** <br />
-> **PASSWORD: test**
+> **LOGIN: maksim@gmail.com** <br />
+> **PASSWORD: maksimqwerty**
 
 
 **FLATSTOCK App** is created with the main goal to provide convenient and fast service of searching available rooms for renting around the world.
