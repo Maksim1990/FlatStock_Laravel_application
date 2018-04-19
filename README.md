@@ -16,7 +16,7 @@
 
 Application core is mainly based on Laravel 5.5 framework, MongoDB database, Google Maps API service and Laravel Cache in order to provide fast access to content from around the world.
 
-![Mockup for feature A](http://web.discoveringworld.net/wp-content/uploads/2017/12/flat-t-1080x675.png)
+![Mockup for feature A](http://web.discoveringworld.net/wp-content/uploads/2017/12/flat.png)
 
 
 ## Techniques that were used for creation of this application: ##
