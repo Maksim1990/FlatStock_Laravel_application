@@ -1,10 +1,10 @@
 # FLATSTOCK APP
 
-## Check this project online: http://www.discoveringworld.net/flatstock/
+## Check this project online: http://www.discoveringworld.net/flatstock
 
-###### Detailed description of this project: http://web.discoveringworld.net/projects/flatstock-app/
+###### Detailed description of this project: http://web.discoveringworld.net/projects/flatstock-app
 
-###### Check out also my other applications and works: http://web.discoveringworld.net/
+###### Check out also my other applications and works: http://web.discoveringworld.net
 
 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+)   **ATTENTION!** *For testing purposes try to use following credentials. These are testing login & password details that provide access to test account and all main application functionalities:*
 
