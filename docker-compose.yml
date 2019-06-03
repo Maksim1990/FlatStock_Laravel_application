@@ -1,0 +1,41 @@
+version: '3.5'
+
+services:
+    nginx:
+        image: nginx:latest
+        ports:
+            - "8307:80"
+            - "4407:443"
+        volumes:
+            - ./docker/nginx/hosts:/etc/nginx/conf.d
+            - ./:/var/www
+            - ./logs/nginx/:/var/log/nginx:cached
+        links:
+            - mongodb
+        depends_on:
+            - php
+            - mongodb
+    php:
+        build:
+            context: ./
+            dockerfile: ./docker/php/Dockerfile
+        container_name: flatstock_php
+        user: "${UID}"
+        volumes:
+          - ./:/var/www
+          - ./data/composer:/.composer
+          - ./logs/laravel:/var/www/var/logs:cached
+    mongodb:
+        image: mongo:latest
+        #restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: flatstock91Y
+        volumes:
+            #- ./data/mongo:/data/db
+            # For Docker on Windows use shared volumes
+            - mongo_data:/data/db
+        ports:
+            - "27017:27017"
+volumes:
+    mongo_data:

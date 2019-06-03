@@ -81,9 +81,6 @@ return [
         'mongodb' => [
             'driver'   => 'mongodb',
             'host'     => env('DB_HOST', 'localhost'),
-            //-- FOR CONNECTION TO THE MONGO ATLAS CLUSTER
-//            'dsn'     => 'mongodb://maksim1990:korncoms050419909111@cluster0-shard-00-00-y3iot.mongodb.net:27017,cluster0-shard-00-01-y3iot.mongodb.net:27017,cluster0-shard-00-02-y3iot.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin',
-
             'port'     => 27017,
             'database' => env('DB_DATABASE'),
             'username' => env('DB_USERNAME'),
