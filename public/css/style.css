@@ -18,7 +18,12 @@ footer{
     height: 200px;
     background-color: #2C2A2A;
     clear: both;
-    padding-top: 40px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 3rem;
+    text-align: center;
+    border-top: 1px solid whitesmoke;
 }
 
 #map {
@@ -52,11 +57,17 @@ padding-bottom: 10px;
 #info_images{
     margin-top: 30px;
     clear: both;
+    margin-bottom: 30px;
+    width: 70%;
+
 }
+
 #info_images img{
     height: 200px;
     margin-left: 15px;
     margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
 }
 .bx-wrapper img {
     float: left;
@@ -68,8 +79,8 @@ padding-bottom: 10px;
     padding-bottom: 10px;"
 }
 #left{
-    background-color: #140F03;
-    height:670px;
+    background-color: #000000;
+    height:700px;
 
 }
 #show_price{
@@ -79,8 +90,11 @@ padding-bottom: 10px;
     margin-right: 20px;
 }
 #app{
-    background-color: #E8E6E5;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #1d1b1b;
 }
+
 #left, #right{
     padding: 0 0;
 }
@@ -147,7 +161,14 @@ font-size: 23px;
 #hide_bitton{
     width: 50px;
 }
+#main{
+    height: 700px;
+}
 @media(max-width:1000px){
+    footer {
+        position: relative;
+        text-align: center;
+    }
     #title_right{
         float:left;
     }

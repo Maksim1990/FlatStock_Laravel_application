@@ -1,11 +1,12 @@
 @extends('layouts.admin')
 @section('styles')
-    <link href="{{asset('js/jquery.bxslider.css')}}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.0/min/dropzone.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <style>
         .bx-wrapper .bx-controls-direction a {
             z-index: 1;
         }
+
     </style>
 @endsection
 @section('content')
@@ -13,7 +14,8 @@
         <div class="col-sm-10 col-sm-offset-2  col-xs-12">
             <div class="col-sm-8   col-xs-12">
                 <h1 id="title_left">{{$apartment->street}}, {{$apartment->house}}-{{$apartment->room}}</h1>
-                <h1 id="title_right">{{$apartment->flatsNo}} rooms</h1> <h2 id="show_price" style="float: right;">{{$apartment->price}} $</h2>
+                <h1 id="title_right">{{$apartment->flatsNo}} rooms</h1>
+                <h2 id="show_price" style="float: right;">{{$apartment->price}} $</h2>
             </div>
             <div id="info_apartment" style="clear:both;">
                 <div class="col-sm-5 col-xs-12 col-lg-5">
@@ -78,68 +80,84 @@
                 </div>
                 <div class="col-sm-7 col-xs-12 col-lg-7" id="info_images">
                     @if(count($apartment->images)>0)
-                        <div class="bxslider">
-                            @foreach($apartment->images as $image)
-                                <div id="slider_block_{{$image->id}}">
-                                    <a href="#" data-toggle="modal" data-target="#showImage"
-                                       title="Show image"
-                                       class="show_image"
-                                       data-image-id="{{$image->id}}"
-                                       data-image-path="{{$image->path}}"
-                                    >
-                                        <img
-                                            src="/images/{{$image->path}}"/></a>
 
-                                    <div class="w3-center description_block_{{$image->id}}"
-                                         style="width: 100%;padding-top: 30px;">
-                                        @if(count($image->descriptions)>0)
-                                            @foreach($image->descriptions as $description)
-                                                @if($description->description)
-                                                    {{$description->description}}<br>
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                @foreach($apartment->images as $image)
+                                    <li data-target="#myCarousel" data-slide-to="{{$loop->index}}"
+                                        class="@if ($loop->first) active @endif w3-text-black"></li>
+                                @endforeach
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                @foreach($apartment->images as $image)
+
+                                    <div class="item  @if ($loop->first) active @endif "
+                                         id="slider_block_{{$image->id}}">
+                                        <a href="#" style="float: left;" data-toggle="modal" data-target="#showImage"
+                                           title="Show image"
+                                           class="show_image"
+                                           data-image-id="{{$image->id}}"
+                                           data-image-path="{{$image->path}}"
+                                        >
+                                            <img
+                                                    src="/images/{{$image->path}}"/></a>
+                                        <div class="w3-center description_block_{{$image->id}}"
+                                             style="width: 100%;padding-top: 50px;">
+                                            @if(count($image->descriptions)>0)
+                                                @foreach($image->descriptions as $description)
+                                                    @if($description->description)
+                                                        {{$description->description}}<br>
+                                                        @if($apartment->user_id==Auth::id())
+                                                            <a href="#" data-toggle="modal"
+                                                               data-target="#addDescription"
+                                                               title="Edit description"
+                                                               class="btn btn-small btn-warning edit_description"
+                                                               data-image-id="{{$image->id}}"
+                                                               data-image-path="{{$image->path}}"
+                                                               data-image-description="{{$description->description}}"
+                                                            >Edit description</a>
+                                                        @endif
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                                <div class="w3-center" style="width: 100%;padding-top: 50px;">
+                                                    No description to this picture<br>
                                                     @if($apartment->user_id==Auth::id())
                                                         <a href="#" data-toggle="modal" data-target="#addDescription"
-                                                           title="Edit description"
-                                                           class="btn btn-small btn-warning edit_description"
+                                                           title="Add description"
+                                                           class="btn btn-small btn-success add_description"
                                                            data-image-id="{{$image->id}}"
                                                            data-image-path="{{$image->path}}"
-                                                           data-image-description="{{$description->description}}"
-                                                        >Edit description</a>
+                                                        >Add new description</a>
                                                     @endif
-                                                @endif
-                                            @endforeach
-                                        @else
-                                            <div class="w3-center" style="width: 100%;padding-top: 50px;">
-                                                No description to this picture<br>
-                                                @if($apartment->user_id==Auth::id())
-                                                    <a href="#" data-toggle="modal" data-target="#addDescription"
-                                                       title="Add description"
-                                                       class="btn btn-small btn-success add_description"
-                                                       data-image-id="{{$image->id}}"
-                                                       data-image-path="{{$image->path}}"
-                                                    >Add new description</a>
-                                                @endif
-                                            </div>
-                                        @endif
+                                                </div>
+                                            @endif
+                                        </div>
                                     </div>
+                                @endforeach
+                            </div>
 
-                                </div>
-
-                            @endforeach
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
-                    @else
-                        <h6>There are no linked images!</h6>
-
-                    @endif
                 </div>
+                @else
+                    <h6>There are no linked images!</h6>
+
+                @endif
             </div>
-
-
         </div>
     </div>
-
-
-
-
 
     <div id="addDescription" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -185,15 +203,12 @@
                 </div>
                 <div class="modal-footer">
                     @if($apartment->user_id==Auth::id())
-                    <button type="button" class="btn btn-danger" id="modal_delete_image">Delete</button>
+                        <button type="button" class="btn btn-danger" id="modal_delete_image">Delete</button>
                     @endif
                 </div>
             </div>
         </div>
     </div>
-
-
-
 @endsection
 
 @section('scripts')
@@ -258,7 +273,7 @@
             }
         });
 
-            $("#modal_image_delete").click(function () {
+        $("#modal_image_delete").click(function () {
             var token = '{{\Illuminate\Support\Facades\Session::token()}}';
             var image_id = $('#modal_image_id').val();
 
@@ -277,7 +292,6 @@
                         _token: token
                     },
                     success: function (data) {
-                        //console.log(data);
                         if (data['status']) {
                             $('#addDescription').modal('hide');
                             $('#modal_image_id').val('');
@@ -325,8 +339,6 @@
             ;
 
             if (blnStatus) {
-                alert(image_id);
-                alert(image_description);
                 //-- Make description area in modal is empty
                 $('#modal_image_description').val('');
                 $('#addDescription').modal('hide');
@@ -396,20 +408,10 @@
         }
     </script>
     <script
-        src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+            src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBtG9lCya_s1zxvYtU9Ob1L2JbwZ67vNk&callback=initMap">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.1.0/min/dropzone.min.js"></script>
-    <script src="{{asset('js/jquery.bxslider.js')}}" type="text/javascript"></script>
-    <script>
-        $('.bxslider').bxSlider({
-            //auto: true,
-            pause: 6000,
-            minSlides: 1,
-            maxSlides: 2,
-            slideMargin: 10
-        });
-    </script>
 @endsection

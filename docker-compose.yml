@@ -25,6 +25,13 @@ services:
           - ./:/var/www
           - ./data/composer:/.composer
           - ./logs/laravel:/var/www/var/logs:cached
+        depends_on:
+            - mongodb
+            - redis
+    redis:
+        image: redis:latest
+        ports:
+            - "6307:6379"
     mongodb:
         image: mongo:latest
         #restart: always
@@ -32,10 +39,10 @@ services:
             MONGO_INITDB_ROOT_USERNAME: root
             MONGO_INITDB_ROOT_PASSWORD: flatstock91Y
         volumes:
-            #- ./data/mongo:/data/db
+            - ./data/mongo:/data/db
             # For Docker on Windows use shared volumes
-            - mongo_data:/data/db
+            #- mongo_data:/data/db
         ports:
             - "27017:27017"
-volumes:
-    mongo_data:
+#volumes:
+#    mongo_data:
