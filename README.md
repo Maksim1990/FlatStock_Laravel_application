@@ -2,7 +2,7 @@
 
 ## Check this project online: http://www.discoveringworld.net/flatstock
 
-###### Detailed description of this project: http://web.discoveringworld.net/projects/flatstock-app
+###### Detailed description of this project: [FlatStock_Laravel_application](http://webcloud.gq:8111/projects/flatstock-app)
 
 ###### Check out also my other applications and works: http://web.discoveringworld.net
 
